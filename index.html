@@ -1,60 +1,284 @@
 <html>
 <head>
-    <title>Sneaker Store</title>
-    <link rel="stylesheet" href="file.css">
+<title>Sneaker Store</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="file.css">
 </head>
 <body>
-    <h1>Online Sneaker Store</h1>
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">About</a>
-    <a href="#">My Cart </a>
+<h1 id="home" class="text-center bg-primary text-white p-3">Online Sneaker Store</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand fw-bold">Sneaker Store</a>
+    <input class="form-control w-25" type="search" placeholder="Search shoes...">
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#cart">Cart 🛒 (<span id="count">0</span>)</a>
+        </li>
+        <li class="nav-item">
+  <a class="nav-link" href="reviews.html">Reviews</a>
+</li>
+        <li class="nav-item">
+          <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
+            Login
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
-    <h2>Nike Air Max</h2>
-    <img src="https://www.superkicks.in/cdn/shop/files/1_2d0f89f7-4be2-4912-8a61-0790b1836bbe.jpg?v=1706605629&width=600" alt="Nike Shoe" width="200">
-    <p class="price">Price: ₹4999</p>
-    <h3>Color:</h3>
-    <input type="radio" name="color1"> Black
-    <input type="radio" name="color1"> White
-    <h3>Size:</h3>
-    <input type="radio" name="size1"> 7
-    <input type="radio" name="size1"> 8
-    <br><br>
-    <button>Add to Cart</button>
-    <hr>
-    <h2>Adidas Runner</h2>
-    <img src="https://m.media-amazon.com/images/I/816gVkTE9ZL._AC_UY1000_.jpg" alt="Adidas Shoe" width="200">
-    <p class="price">Price: ₹3999</p>
-    <h3>Color:</h3>
-    <input type="radio" name="color2"> Blue
-    <input type="radio" name="color2"> White
-    <h3>Size:</h3>
-    <input type="radio" name="size2"> 6
-    <input type="radio" name="size2"> 7
-    <br><br>
-    <button>Add to Cart</button>
-    <hr>
-    <h2>Puma Sports</h2>
-    <img src="https://images-static.nykaa.com/media/catalog/product/f/4/f4bf23139749503_1.jpg?tr=w-500" alt="Puma Shoe" width="200">
-    <p class="price">Price: ₹2999</p>
-    <h3>Color:</h3>
-    <input type="radio" name="color3"> Red
-    <input type="radio" name="color3"> Black
-    <h3>Size:</h3>
-    <input type="radio" name="size3"> 8
-    <input type="radio" name="size3"> 9
-    <br><br>
-    <button>Add to Cart</button>
-    <hr>
-    <h2>Customer Reviews</h2>
-    <p><b>Rohit:</b> Great quality shoes!</p>
-    <p><b>Priya:</b> Comfortable and stylish.</p>
-    <p><b>Amit:</b> Worth the price.</p>
-<footer>
-    <p>© Online Sneaker Store</p>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+       <div class="d-flex justify-content-center align-items-center" style="height:300px;">
+      <img src="https://www.superkicks.in/cdn/shop/files/1_2d0f89f7-4be2-4912-8a61-0790b1836bbe.jpg?v=1706605629&width=600" class="d-block w-30" alt="...">
+    </div>
+    </div>
+    <div class="carousel-item">
+       <div class="d-flex justify-content-center align-items-center" style="height:300px;">
+      <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/0685694f0f754aacb4ad69cb9d636f0d_9366/ULTRABOOST_5_MERCEDES_AMG_PETRONAS_F1_TEAM_Shoes_Black_KJ3673_HM1.jpg" class="d-block w-30" alt="...">
+    </div>
+    </div>
+    <div class="carousel-item">
+       <div class="d-flex justify-content-center align-items-center" style="height:300px;">
+      <img src="https://images-static.nykaa.com/media/catalog/product/f/4/f4bf23139749503_1.jpg?tr=w-500" class="d-block w-30" alt="...">
+    </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container mt-4">
+  <h4>Filter Products</h4>
+  <select class="form-select mb-2" onchange="filterColor(this.value)">
+    <option value="all">All Colors</option>
+    <option value="black">Black</option>
+    <option value="white">White</option>
+    <option value="red">Red</option>
+  </select>
+  <select class="form-select" onchange="filterSize(this.value)">
+    <option value="all">All Sizes</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+</div>
+<div id="products" class="container mt-4">
+  <div class="row g-4">
+    <div class="col-md-4 product" data-color="black" data-size="8">
+      <div class="card h-100 position-relative">
+        <span class="badge bg-danger position-absolute top-0 start-0 m-2">-20%</span>
+        <img src="https://www.superkicks.in/cdn/shop/files/1_2d0f89f7-4be2-4912-8a61-0790b1836bbe.jpg?v=1706605629&width=600" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>Nike Air Max</h5>
+                 <p class="text-warning">★★★★☆</p>
+          <p class="text-danger fw-bold">₹4999</p>
+          <p>Color:</p>
+          <input type="radio" name="color1" id="black1">
+          <label for="black1">Black</label>
+          <input type="radio" name="color1" id="white1">
+          <label for="white1">White</label>
+          <p class="mt-2">Size:</p>
+          <input type="radio" name="size1" id="size7">
+          <label for="size7">7</label>
+        <input type="radio" name="size1" id="size8">
+        <label for="size8">8</label>
+        <input type="radio" name="size1" id="size9">
+        <label for="size9">9</label>
+          <br><br>
+ <button class="btn btn-warning" onclick="addToCart()" data-bs-toggle="modal" data-bs-target="#cartModal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 product" data-color="white" data-size="7">
+      <div class="card h-100">
+        <img src="https://m.media-amazon.com/images/I/816gVkTE9ZL._AC_UY1000_.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>Adidas Runner</h5>
+          <p class="text-danger fw-bold">₹3999</p>
+  <p class="mb-1">Color:</p>
+        <input type="radio" name="color2" id="black1">
+        <label for="black1">Black</label>
+<input type="radio" name="color2" id="white1">
+<label for="white1">White</label>
+  <p class="mt-2 mb-1">Size:</p>
+  <input type="radio" name="size2" id="size7">
+<label for="size7">7</label>
+<input type="radio" name="size2" id="size8">
+<label for="size8">8</label>
+<input type="radio" name="size2" id="size9">
+<label for="size9">9</label>
+  <br><br>
+          <button class="btn btn-warning" onclick="addToCart()" data-bs-toggle="modal" data-bs-target="#cartModal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 product" data-color="red" data-size="9">
+      <div class="card h-100">
+        <img src="https://images-static.nykaa.com/media/catalog/product/f/4/f4bf23139749503_1.jpg?tr=w-500" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>Puma Sports</h5>
+          <p class="text-danger fw-bold">₹2999</p>
+  <p class="mb-1">Color:</p>
+  <input type="radio" name="color3" id="black1">
+  <label for="black1">Black</label>
+  <input type="radio" name="color3" id="white1">
+  <label for="white1">White</label>
+  <p class="mt-2 mb-1">Size:</p>
+  <input type="radio" name="size3" id="size7">
+  <label for="size7">7</label>
+  <input type="radio" name="size3" id="size8">
+  <label for="size8">8</label>
+  <input type="radio" name="size3" id="size9">
+  <label for="size9">9</label>
+  <br><br>
+          <button class="btn btn-warning" onclick="addToCart()" data-bs-toggle="modal" data-bs-target="#cartModal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 product" data-color="black" data-size="7">
+      <div class="card h-100">
+        <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/0685694f0f754aacb4ad69cb9d636f0d_9366/ULTRABOOST_5_MERCEDES_AMG_PETRONAS_F1_TEAM_Shoes_Black_KJ3673_HM1.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>Adidas UltraBoost</h5>
+          <p class="text-danger fw-bold">₹5999</p>   
+  <p class="mb-1">Color:</p>
+<input type="radio" name="color4" id="black1">
+<label for="black1">Black</label>
+<input type="radio" name="color4" id="white1">
+<label for="white1">White</label>
+  <p class="mt-2 mb-1">Size:</p>
+<input type="radio" name="size4" id="size7">
+<label for="size7">7</label>
+<input type="radio" name="size4" id="size8">
+<label for="size8">8</label>
+<input type="radio" name="size4" id="size9">
+<label for="size9">9</label>
+  <br><br>
+          <button class="btn btn-warning" onclick="addToCart()" data-bs-toggle="modal" data-bs-target="#cartModal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 product" data-color="white" data-size="9">
+      <div class="card h-100">
+        <img src="https://assets.ajio.com/medias/sys_master/root/20240104/URRb/6596c796afa4cf41f50320db/-473Wx593H-469566613-blue-MODEL.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>Puma Runner X</h5>
+          <p class="text-danger fw-bold">₹3499</p>  
+  <p class="mb-1">Color:</p>
+  <input type="radio" name="color5" id="black1">
+  <label for="black1">Black</label>
+  <input type="radio" name="color5" id="white1">
+  <label for="white1">White</label>
+  <p class="mt-2 mb-1">Size:</p>
+  <input type="radio" name="size5" id="size7">
+<label for="size7">7</label>
+<input type="radio" name="size5" id="size8">
+<label for="size8">8</label>
+<input type="radio" name="size5" id="size9">
+<label for="size9">9</label>
+  <br><br>
+          <button class="btn btn-warning" onclick="addToCart()" data-bs-toggle="modal" data-bs-target="#cartModal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 product" data-color="red" data-size="8">
+      <div class="card h-100">
+        <img src="https://assets.ajio.com/medias/sys_master/root/20201209/yo6O/5fcfcb89aeb269d563338f62/-473Wx593H-460681786-blue-MODEL.jpg" class="card-img-top">
+        <div class="card-body text-center">
+          <h5>Nike ZoomX</h5>
+          <p class="text-danger fw-bold">₹6999</p>
+  <p class="mb-1">Color:</p>
+  <input type="radio" name="color6" id="black1">
+  <label for="black1">Black</label>
+  <input type="radio" name="color6" id="white1">
+  <label for="white1">White</label>
+  <p class="mt-2 mb-1">Size:</p>
+  <input type="radio" name="size6" id="size7">
+  <label for="size7">7</label>
+  <input type="radio" name="size6" id="size8">
+  <label for="size8">8</label>
+  <input type="radio" name="size6" id="size9">
+  <label for="size9">9</label>
+  <br><br>
+          <button class="btn btn-warning" onclick="addToCart()" data-bs-toggle="modal" data-bs-target="#cartModal">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+<div id="reviews" class="container mt-5">
+  <h2 class="text-center mb-4">Customer Reviews ⭐</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm h-100">
+        <h5>Rohit</h5>
+        <p class="text-warning">★★★★★</p>
+        <p>Great quality shoes! Very comfortable and stylish.</p>
+      </div>
+    </div>
+    <div id="reviews"class="col-md-4">
+      <div class="card p-3 shadow-sm h-100">
+        <h5>Priya</h5>
+        <p class="text-warning">★★★★☆</p>
+        <p>Comfortable and trendy. Worth the price.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow-sm h-100">
+        <h5>Amit</h5>
+        <p class="text-warning">★★★★☆</p>
+        <p>Good quality but delivery was a bit late.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="cartModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Cart</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Product added to cart 🛒
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="loginModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Login / Signup</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control mb-2" placeholder="Username">
+        <input type="password" class="form-control mb-2" placeholder="Password">
+        <button class="btn btn-primary w-100">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="text-center mt-4 p-3 bg-light">
+  <p>© Online Sneaker Store</p>
     <p>Contact: sneakerstore@gmail.com</p>
 </footer>
-    
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
